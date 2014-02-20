@@ -24,3 +24,4 @@ gem 'jquery-rails'
 
 gem 'geoip'
 gem 'capistrano-rvm'
+gem 'unicorn'
