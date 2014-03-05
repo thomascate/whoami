@@ -5,7 +5,7 @@ class Api::IpController < ApplicationController
 
     @country = GeoIP.new('/var/www/whoami/shared/GeoIP.dat').country(@remote_ip)
     @city    = GeoIP.new('/var/www/whoami/shared/GeoLiteCity.dat').city(@remote_ip)
-    @asn     = GeoIP.new('/var/www/whoami/shared/GeoIPASNUM.dat').asn(@remote_ip)
+    @asn     = GeoIP.new('/var/www/whoami/shared/GeoIPASNum.dat').asn(@remote_ip)
 
     respond_to do |format|
 
