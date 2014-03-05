@@ -1,11 +1,7 @@
 class Api::IpController < ApplicationController
   def index
 
-    if request.env["HTTP_X_FORWARDED_FOR"]
-      @remote_ip = request.env["HTTP_X_FORWARDED_FOR"]
-    else
-      @remote_ip = request.env['REMOTE_ADDR']
-    end
+    @remote_ip = request.env['HTTP_X_FORWARDED_FOR'].split(/ /)[0].chomp(",")
 
     @country = GeoIP.new('/Users/thom4262/ruby/whoami/GeoIP.dat').country(@remote_ip)
     @city    = GeoIP.new('/Users/thom4262/ruby/whoami/GeoLiteCity.dat').city(@remote_ip)
