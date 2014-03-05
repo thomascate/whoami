@@ -3,9 +3,9 @@ class Api::IpController < ApplicationController
 
     @remote_ip = request.env['HTTP_X_FORWARDED_FOR'].split(/ /)[0].chomp(",")
 
-    @country = GeoIP.new('/Users/thom4262/ruby/whoami/GeoIP.dat').country(@remote_ip)
-    @city    = GeoIP.new('/Users/thom4262/ruby/whoami/GeoLiteCity.dat').city(@remote_ip)
-    @asn     = GeoIP.new('/Users/thom4262/ruby/whoami/GeoIPASNUM.dat').asn(@remote_ip)
+    @country = GeoIP.new('../../shared/GeoIP.dat').country(@remote_ip)
+    @city    = GeoIP.new('../../shared/GeoLiteCity.dat').city(@remote_ip)
+    @asn     = GeoIP.new('../../shared/GeoIPASNUM.dat').asn(@remote_ip)
 
     respond_to do |format|
 
